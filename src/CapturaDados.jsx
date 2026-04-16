@@ -22,10 +22,10 @@ const CapturaDados = () => {
                 </div>
                 <div className="col-md-6">
                     <p>Período (meses)</p>
-                    <input type="text" className="form-control"/>
+                    <input type="text" className="form-control mb-1"/>
                 </div>
             </div>
-            <button className="col-8 me-5 rounded">Calcular</button>
+            <button className="col-8 me-5 mb-1 rounded">Calcular</button>
             <button className="col-3 rounded">Limpar</button>
         </div>
     )
