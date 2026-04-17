@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import CapturaDados from './CapturaDados'
 import ExibeDados from './ExibeDados'
 import { useState } from 'react'
+import Historico from './Historico'
 
 
 
@@ -17,9 +18,22 @@ const App = () => {
   rent: 0
   })
 
+  const [historico, setHistorico] = useState([])
+
+  const handleCalculo = (dados) => {
+  setResultados(dados) 
+
+  const novaSimulacao = {
+    data: new Date().toLocaleString(),
+    valorFinal: dados.acum
+  }
+
+  setHistorico([...historico, novaSimulacao])
+}
+
  return (
   <div className="container rounded">
-    <CapturaDados onCalcular={setResultados} />
+    <CapturaDados onCalcular={handleCalculo} />
     <ExibeDados
       acum={resultados.acum}
       invest={resultados.invest}
@@ -27,6 +41,7 @@ const App = () => {
       aporte={resultados.aporte}
       rent={resultados.rent}
     />       
+    <Historico historico={historico}/>
   </div>
   )
 }
